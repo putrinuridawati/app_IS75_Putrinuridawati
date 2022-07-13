@@ -104,7 +104,7 @@
 
 
 
-@extends('layouts.app')
+{{-- @extends('layouts.app')
 
 @section('content')
 <div class="container">
@@ -182,10 +182,10 @@
                                 </button>
                             </div>
                         </div>
-                    </form>P
+                    </form>
                 </div>
             </div>
         </div>
     </div>
 </div>
-@endsection
+@endsection --}}
