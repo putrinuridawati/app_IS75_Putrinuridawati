@@ -16,16 +16,16 @@ return new class extends Migration
         Schema::create('transaksis', function (Blueprint $table) {
             $table->id();
             $table->string('kode_tran')->unique();
-            $table->date('tanggal ');
+            $table->date('tanggal');
             $table->string('kode_pelanggan');
             $table->string('kode_kasir');
             $table->string('kode_barang');
             $table->string('brutto');
-            $table->string('tarra ');
-            $table->string('netto ');
-            $table->string('harga ');
-            $table->string('total ');
-            $table->string('bayar ');
+            $table->string('tarra');
+            $table->string('netto');
+            $table->string('harga');
+            $table->string('total');
+            $table->string('bayar');
             $table->timestamps();
         });
     }

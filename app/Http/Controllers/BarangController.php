@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Barang;
 
 class BarangController extends Controller
 {
@@ -15,10 +16,14 @@ class BarangController extends Controller
     {
         $this->middleware('auth');
     }
-    
+
      public function index()
     {
-        //
+        $nomor =1;
+        $barang = Barang::all();
+        return view('barang.index', compact('nomor','barang'));
+
+
     }
 
     /**
