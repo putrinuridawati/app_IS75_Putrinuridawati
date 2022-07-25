@@ -54,8 +54,34 @@
                       <td>{{$item->nama_barang}}</td>
                       <td>{{$item->hargaperkg}}</td>
                       <td>
-                          <a href="#" class="btn btn-info">edit</a>
-                          <a href="#" class="btn btn-danger">hapus</a>
+                        <a href="/barang/edit/{{$item->id}}" class="btn btn-success btn-sm">edit</a>
+                        <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#e{{$item->id}}">
+                          Hapus
+                        </button>
+
+                        <!-- Modal -->
+                    <div class="modal fade" id="e{{$item->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                      <div class="modal-dialog">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Peringatan</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                          </div>
+                          <div class="modal-body">
+                           Yakin barang {{$item->nama_barang}} ingin dihapus?
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+
+                            <form method="post" action="/barang/{{$item->id}}">
+                              @csrf
+                              @method('DELETE')
+                            <button type="submit" class="btn btn-primary">Hapus</button>
+                          </div>
+                        </form>
+                        </div>
+                      </div>
+                    </div>
                       </td>
                   </tr> 
                   @empty
