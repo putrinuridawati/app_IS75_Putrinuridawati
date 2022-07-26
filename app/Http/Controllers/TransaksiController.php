@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Barang;
+use App\Models\Transaksi;
 use Illuminate\Http\Request;
 
 class TransaksiController extends Controller
@@ -18,7 +20,9 @@ class TransaksiController extends Controller
     
      public function index()
     {
-        //
+        $nomor = 1;
+        $transaksi = Transaksi::all();
+        return view('transaksi.index' , compact('transaksi','nomor'));
     }
 
     /**
@@ -28,7 +32,8 @@ class TransaksiController extends Controller
      */
     public function create()
     {
-        //
+        $barang = Barang::all();
+        return view('transaksi.form',compact('barang'));
     }
 
     /**
@@ -39,7 +44,22 @@ class TransaksiController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $transaksi = new Transaksi;
+
+        $transaksi->kode_trans = $request->kode_trans;
+        $transaksi->tanggal = $request->tanggal;
+        $transaksi->kode_pelanggan = $request->kode_pelanggan;
+        $transaksi->kode_kasir = $request->kode_kasir;
+        $transaksi->barangs_id = $request->kode_barang;
+        $transaksi->brutto = $request->brutto;
+        $transaksi->tarra = $request->tarra;
+        $transaksi->netto = $request->netto;
+        $transaksi->harga = $request->harga;
+        $transaksi->total = $request->total;
+        $transaksi->bayar = $request->bayar;
+
+        $transaksi->save();
+        return redirect('/transaksi');
     }
 
     /**
@@ -61,7 +81,8 @@ class TransaksiController extends Controller
      */
     public function edit($id)
     {
-        //
+        $transaksi =Transaksi::find($id);
+        return view('transaksi.edit',compact('transaksi'));
     }
 
     /**
@@ -73,7 +94,22 @@ class TransaksiController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $transaksi = new Transaksi;
+
+        $transaksi->kode_trans = $request->kode_trans;
+        $transaksi->tanggal = $request->tanggal;
+        $transaksi->kode_pelanggan = $request->kode_pelanggan;
+        $transaksi->kode_kasir = $request->kode_kasir;
+        $transaksi->barangs_id = $request->kode_barang;
+        $transaksi->brutto = $request->brutto;
+        $transaksi->tarra = $request->tarra;
+        $transaksi->netto = $request->netto;
+        $transaksi->harga = $request->harga;
+        $transaksi->total = $request->total;
+        $transaksi->bayar = $request->bayar;
+
+        $transaksi->save();
+        return redirect('/transaksi');
     }
 
     /**
@@ -84,6 +120,9 @@ class TransaksiController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $transaksi = Transaksi::find($id);
+        $transaksi->delete();
+
+        return redirect('/transaksi');
     }
 }

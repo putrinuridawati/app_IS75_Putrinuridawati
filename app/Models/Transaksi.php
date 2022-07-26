@@ -7,5 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Transaksi extends Model
 {
-    use HasFactory;
+    public function barangs(){
+        return $this->hasOne(Barang::class,'id','barangs_id');
+    }
 }
