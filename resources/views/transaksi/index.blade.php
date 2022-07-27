@@ -24,8 +24,10 @@
     <section class="content">
       <div class="card">
         <div class="card-header">
-        <a href="/transaksi/form" class="btn btn-primary">Tambah Data</a>
-  
+          @can('create',App\Transaksi::class)
+          <a href="/transaksi/form" class="btn btn-primary">Tambah Data</a>
+          @endcan
+
         <div class="card-tools">
             <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
             <i class="fas fa-minus"></i>
@@ -51,6 +53,7 @@
                       <th>HARGA</th>
                       <th>TOTAL</th>
                       <th>BAYAR</th>
+                      <th>ACTION</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -69,6 +72,7 @@
                         <td>{{$item->total}}</td>
                         <td>{{$item->bayar}}</td>
                         <td>
+                          @can('create',App\Transaksi::class)
                           <a href="/transaksi/edit/{{$item->id}}" class="btn btn-sm text-white btn-info"><i class="fa fa-pencil-alt"></i></a>
                                 <button type="button" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#a{{$item->id}}">
                                   <i class="fa fa-trash-alt"></i>
@@ -91,9 +95,11 @@
                                     <button type="submit" class="btn btn-primary">Hapus</button>
                                   </form>
                                 </div>
+
                               </div>
                             </div>
                           </div>
+                          @endcan
                         </td>
                     </tr> 
                     @empty

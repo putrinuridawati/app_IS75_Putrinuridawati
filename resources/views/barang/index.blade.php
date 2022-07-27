@@ -25,7 +25,9 @@
     <!-- Default box -->
     <div class="card">
       <div class="card-header">
-      <a href="/barang/form" class="btn btn-primary">Tambah Data</a>
+        @can('create',App\Barang::class)
+        <a href="/barang/form" class="btn btn-primary">Tambah Data</a>
+        @endcan
 
       <div class="card-tools">
           <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
@@ -44,6 +46,7 @@
                     <th>KODE BARANG</th>
                     <th>NAMA BARANG</th>
                     <th>HARGA</th>
+                    <th>ACTION</th>
                   </tr>
               </thead>
               <tbody>
@@ -54,6 +57,7 @@
                       <td>{{$item->nama_barang}}</td>
                       <td>{{$item->hargaperkg}}</td>
                       <td>
+                        @can('create',App\Barang::class)
 
                         <a href="/barang/edit/{{$item->id}}" class="btn btn-sm text-white btn-info"><i class="fa fa-pencil-alt"></i></a>
                                 <button type="button" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#a{{$item->id}}">
@@ -80,6 +84,7 @@
                               </div>
                             </div>
                           </div>
+                          @endcan
                       </td>
                   </tr> 
                   @empty
