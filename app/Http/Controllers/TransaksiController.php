@@ -46,7 +46,7 @@ class TransaksiController extends Controller
     {
         $transaksi = new Transaksi;
 
-        $transaksi->kode_trans = $request->kode_trans;
+        $transaksi->kode_tran = $request->kode_tran;
         $transaksi->tanggal = $request->tanggal;
         $transaksi->kode_pelanggan = $request->kode_pelanggan;
         $transaksi->kode_kasir = $request->kode_kasir;
@@ -82,7 +82,9 @@ class TransaksiController extends Controller
     public function edit($id)
     {
         $transaksi =Transaksi::find($id);
-        return view('transaksi.edit',compact('transaksi'));
+        $barang = Barang::all();
+        // dd($transaksi);
+        return view('transaksi.edit',compact('transaksi','barang'));
     }
 
     /**
@@ -94,9 +96,9 @@ class TransaksiController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $transaksi = new Transaksi;
+        $transaksi = Transaksi::find($id);
 
-        $transaksi->kode_trans = $request->kode_trans;
+        $transaksi->kode_tran = $request->kode_tran;
         $transaksi->tanggal = $request->tanggal;
         $transaksi->kode_pelanggan = $request->kode_pelanggan;
         $transaksi->kode_kasir = $request->kode_kasir;

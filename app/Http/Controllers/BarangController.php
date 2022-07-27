@@ -44,6 +44,7 @@ class BarangController extends Controller
      */
     public function store(Request $request)
     {
+        $this->authorize('create',Barang::class);
         $barang=new Barang();
 
         $barang->kode_barang = $request->kod;

@@ -19,7 +19,7 @@ return new class extends Migration
             $table->date('tanggal');
             $table->string('kode_pelanggan');
             $table->string('kode_kasir');
-            $table->string('kode_barang');
+            $table->bigInteger('barangs_id');
             $table->string('brutto');
             $table->string('tarra');
             $table->string('netto');

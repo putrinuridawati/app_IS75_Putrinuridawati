@@ -1,32 +1,79 @@
 @extends('layouts.master')
 
-@section('title', 'Tambah Data barang')
 @section('content')
-
-<div class="container bg-white mt-3 p-4">
-    <div class="card border-success mb-3">
-        <div class="card-header bg-transparent border-success">Form</div>
-        <div class="card-body text-success">
-
-            <form method="post" action="/barang/store">
-              @csrf
-                  <div class="mb-3">
-                    <label for="disabledTextInput" class="form-label">Kode Barang</label>
-                    <input type="text" name="kod" class="form-control">
-                  </div>
-                  <div class="mb-3">
-                    <label for="disabledTextInput" class="form-label">Nama Barang</label>
-                    <input type="text" name="brg" class="form-control">
-                  </div>
-                  <div class="mb-3">
-                    <label for="disabledTextInput" class="form-label">Harga</label>
-                    <input type="text" name="hrg" class="form-control">
-                  </div>
-                  <button type="submit" class="btn btn-primary">Tambah Data</button>
-                  <a href="/barang" class="btn btn-warning">Batal</a>
-  
-              </form>
-
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+        <div class="col-sm-6">
+            <h1>Form Tambah barang</h1>
         </div>
+        <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+            <li class="breadcrumb-item"><a href="#">Home</a></li>
+            <li class="breadcrumb-item active">Form Tambah barang</li>
+            </ol>
+        </div>
+        </div>
+    </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+
+    <!-- Default box -->
+    <div class="card">
+        <div class="card-header">
+
+        <div class="card-tools">
+            <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+            <i class="fas fa-minus"></i>
+            </button>
+            <button type="button" class="btn btn-tool" data-card-widget="remove" title="Remove">
+            <i class="fas fa-times"></i>
+            </button>
+        </div>
+        </div>
+        <div class="card-body table-responsive p-0">
+            <form class="form-horizontal" action="/barang/store" method="POST">
+                @csrf
+                <div class="card-body">
+                  <div class="form-group row">
+                    <label for="inputEmail3" class="col-sm-2 col-form-label">Kode Barang</label>
+                    <div class="col-sm-10">
+                      <input type="text" class="form-control" id="inputEmail3" name="kod">
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label for="inputPassword3" class="col-sm-2 col-form-label">Nama Barang</label>
+                    <div class="col-sm-10">
+                      <input type="text" class="form-control" id="inputPassword3" name="brg">
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label for="inputPassword3" class="col-sm-2 col-form-label">Harga</label>
+                    <div class="col-sm-10">
+                      <input type="text" class="form-control" id="inputPassword3" name="hrg">
+                    </div>
+                  </div>
+                </div>
+                <!-- /.card-body -->
+                <div class="card-footer">
+                  <button type="submit" class="btn btn-info">Tambah Data</button>
+                  <a href="/barang" class="btn btn-default float-right">Batal</a>
+                </div>
+                <!-- /.card-footer -->
+              </form>        
+        </div>
+        <!-- /.card-body -->
+        
+        <!-- /.card-footer-->
+    </div>
+    <!-- /.card -->
+
+    </section>
+    <!-- /.content -->
 </div>
 @endsection
+
