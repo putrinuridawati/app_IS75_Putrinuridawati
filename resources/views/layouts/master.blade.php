@@ -210,7 +210,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="../barang" class="nav-link">
+            <a href="/barang" class="nav-link">
               <i class="nav-icon far fa-image"></i>
               <p>
                 Data Barang
